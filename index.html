@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KubSU - Пример страницы</title>
+    <style>
+        /* Mobile First - стили для мобильных устройств */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        /* Шапка сайта */
+        #site-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+        }
+
+        .site-title {
+            font-size: 1.2rem;
+        }
+
+        /* Навигационное меню */
+        #main-nav {
+            background-color: #34495e;
+            width: 100%;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-menu li {
+            border-bottom: 1px solid #4a6278;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #4a6278;
+        }
+
+        /* Основной контент */
+        main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 1rem 0;
+        }
+
+        /* Секция ссылок */
+        #links-section {
+            order: 2; /* На мобильных будет после таблицы */
+            margin-bottom: 2rem;
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .links-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+
+        .links-list a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+
+        .links-list img {
+            vertical-align: middle;
+            margin: 0 0.5rem;
+        }
+
+        /* Секция таблицы */
+        #table-section {
+            order: 1; /* На мобильных будет перед ссылками */
+            margin-bottom: 2rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Секция формы */
+        #form-section {
+            order: 3;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: normal;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Подвал сайта */
+        #site-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Media Query для планшетов (768px и выше) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            main {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            #links-section {
+                order: 1;
+                width: 30%;
+            }
+
+            #table-section {
+                order: 2;
+                width: 70%;
+                padding-left: 2rem;
+            }
+
+            #form-section {
+                order: 3;
+                width: 100%;
+            }
+
+            .nav-menu {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .nav-menu li {
+                border-bottom: none;
+                border-right: 1px solid #4a6278;
+            }
+
+            .nav-menu li:last-child {
+                border-right: none;
+            }
+
+            .site-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Media Query для десктопов (1024px и выше) */
+        @media (min-width: 1024px) {
+            .logo-section {
+                flex-wrap: nowrap;
+            }
+
+            .nav-menu {
+                justify-content: flex-start;
+            }
+
+            .nav-menu a {
+                padding: 1rem 1.5rem;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="tel"],
+            .form-group input[type="email"],
+            .form-group input[type="date"],
+            .form-group textarea,
+            .form-group select {
+                max-width: 400px;
+            }
+        }
+
+        /* Дополнительные улучшения для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .logo-section {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .site-title {
+                font-size: 1rem;
+            }
+
+            .data-table {
+                font-size: 0.8rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header id="site-header">
+        <div class="container">
+            <div class="logo-section">
+                <img src="https://via.placeholder.com/100x50" alt="Логотип KubSU" class="logo">
+                <h1 class="site-title">Кубанский государственный университет</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav id="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#education">Образование</a></li>
+                <li><a href="#science">Наука</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <section id="links-section">
+            <h2>Примеры гиперссылок</h2>
+            
+            <ul class="links-list">
+                <li><a href="http://kubsu.ru">1) Абсолютная гиперссылка на главную страницу сайта kubsu.ru</a></li>
+                <li><a href="https://kubsu.ru">2) Абсолютная на главную сайта kubsu.ru в протоколе https</a></li>
+                <li><a href="https://kubsu.ru"><img src="https://via.placeholder.com/100x50" alt="KubSU Logo">3) Ссылка-изображение</a></li>
+                <li><a href="/faculty">4) Сокращенная ссылка на внутреннюю страницу</a></li>
+                <li><a href="/">5) Сокращенная ссылка на главную страницу</a></li>
+                <li><a href="#table-section">6) Ссылка на фрагмент текущей страницы</a></li>
+                <li><a href="https://example.com/page?param1=value1&param2=value2&param3=value3">7) Ссылка с тремя параметрами в URL</a></li>
+                <li><a href="https://example.com/page?id=12345">8) Ссылка с параметром id в URL</a></li>
+                <li><a href="current.html">9) Относительная на страницу в текущем каталоге</a></li>
+                <li><a href="about/index.html">10) Относительная на страницу в каталоге about</a></li>
+                <li><a href="../page.html">11) Относительная на страницу в каталоге уровнем выше текущего</a></li>
+                <li><a href="../../page.html">12) Относительная на страницу в каталоге двумя уровнями выше</a></li>
+                <li>13) Контекстная в тексте абзаца: <a href="https://kubsu.ru">Кубанский государственный университет</a> - ведущий вуз Краснодарского края.</li>
+                <li><a href="https://example.com/page#section">14) Ссылка на фрагмент страницы стороннего сайта</a></li>
+                <li>
+                    15) Ссылки из прямоугольных и круглых областей картинки:
+                    <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65982a2cdf834a4869595884_65982a32df834a4869595966/scale_1200"  width="300" alt="Пример изображения с областями" usemap="#image-map">
+                    <map name="image-map">
+                        <area shape="rect" coords="0,0,50,50" href="https://kubsu.ru" alt="Прямоугольная область">
+                        <area shape="circle" coords="100,100,50" href="https://kubsu.ru/en" alt="Круглая область">
+                    </map>
+                </li>
+                <li><a href="">16) Ссылка с пустым href</a></li>
+                <li><a>17) Ссылка без href</a></li>
+                <li><a href="https://kubsu.ru" rel="nofollow">18) Ссылка, по которой запрещен переход поисковикам</a></li>
+                <li><a href="https://kubsu.ru" rel="noindex">19) Запрещенная для индексации поисковиками</a></li>
+                <li>
+                    20) Нумерованный список ссылок с подписями title:
+                    <ol>
+                        <li><a href="https://kubsu.ru" title="Официальный сайт КубГУ">KubSU</a></li>
+                        <li><a href="https://kubsu.ru/university" title="Информация об университете">Об университете</a></li>
+                        <li><a href="https://kubsu.ru/education" title="Образовательные программы">Образование</a></li>
+                    </ol>
+                </li>
+                <li><a href="ftp://user:password@ftp.example.com/file.txt">21) Ссылка на файл на сервере FTP с авторизацией</a></li>
+            </ul>
+        </section>
+
+        <!-- Таблица -->
+        <section id="table-section">
+            <h2>Пример таблицы</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Факультет</th>
+                        <th>Специальность</th>
+                        <th>Количество студентов</th>
+                        <th>Год основания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Математики и компьютерных наук</td>
+                        <td>Прикладная математика</td>
+                        <td>120</td>
+                        <td>1970</td>
+                    </tr>
+                    <tr>
+                        <td>Компьютерные науки</td>
+                        <td>180</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>Филологии</td>
+                        <td>Русский язык и литература</td>
+                        <td>90</td>
+                        <td>1920</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Экономический</td>
+                        <td>Экономика</td>
+                        <td>150</td>
+                        <td>1990</td>
+                    </tr>
+                    <tr>
+                        <td>Менеджмент</td>
+                        <td>130</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>Юридический</td>
+                        <td>Юриспруденция</td>
+                        <td>200</td>
+                        <td>1992</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Форма -->
+        <section id="form-section">
+            <h2>Форма регистрации</h2>
+            <form id="registration-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="fullname">ФИО:</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthdate">Дата рождения:</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Пол:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Мужской</label>
+                        
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Женский</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="languages">Любимый язык программирования:</label>
+                    <select id="languages" name="languages" multiple size="6">
+                        <option value="pascal">Pascal</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="php">PHP</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="haskel">Haskel</option>
+                        <option value="clojure">Clojure</option>
+                        <option value="prolog">Prolog</option>
+                        <option value="scala">Scala</option>
+                    </select>
+                    <small>Для выбора нескольких вариантов удерживайте Ctrl (Cmd на Mac)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bio">Биография:</label>
+                    <textarea id="bio" name="bio" rows="5"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">С контрактом ознакомлен(а)</label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Сохранить</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer id="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Кубанский государственный университет. Все права защищены.</p>
+            <p>Адрес: г. Краснодар, ул. Ставропольская, 149</p>
+        </div>
+    </footer>
+</body>
+</html>
