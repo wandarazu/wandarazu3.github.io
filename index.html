@@ -87,7 +87,7 @@
 
         /* Секция ссылок */
         #links-section {
-            order: 2; /* На мобильных будет после таблицы */
+            order: 1;
             margin-bottom: 2rem;
         }
 
@@ -118,7 +118,7 @@
 
         /* Секция таблицы */
         #table-section {
-            order: 1; /* На мобильных будет перед ссылками */
+            order: 3; /* Перемещена вниз */
             margin-bottom: 2rem;
         }
 
@@ -146,7 +146,7 @@
 
         /* Секция формы */
         #form-section {
-            order: 3;
+            order: 2;
         }
 
         .form-group {
@@ -216,6 +216,13 @@
             width: 100%;
         }
 
+        /* Уменьшенное лого для пункта 3 */
+        .small-logo {
+            width: 50px;
+            height: 25px;
+            vertical-align: middle;
+        }
+
         /* Media Query для планшетов (768px и выше) */
         @media (min-width: 768px) {
             .container {
@@ -235,14 +242,15 @@
             }
 
             #table-section {
-                order: 2;
-                width: 70%;
-                padding-left: 2rem;
+                order: 3; /* Остается внизу на планшетах */
+                width: 100%;
+                padding-left: 0;
             }
 
             #form-section {
-                order: 3;
-                width: 100%;
+                order: 2;
+                width: 70%;
+                padding-left: 2rem;
             }
 
             .nav-menu {
@@ -324,7 +332,7 @@
     <header id="site-header">
         <div class="container">
             <div class="logo-section">
-                <img src="https://via.placeholder.com/100x50" alt="Логотип KubSU" class="logo">
+                <img src="https://colab.ws/storage/images/resized/ZunzPDBGq2IX6KTpUfW3TGLRhxU2NohRlvTfEabZ_large.webp" alt="Логотип KubSU" class="logo">
                 <h1 class="site-title">Кубанский государственный университет</h1>
             </div>
         </div>
@@ -351,7 +359,7 @@
             <ul class="links-list">
                 <li><a href="http://kubsu.ru">1) Абсолютная гиперссылка на главную страницу сайта kubsu.ru</a></li>
                 <li><a href="https://kubsu.ru">2) Абсолютная на главную сайта kubsu.ru в протоколе https</a></li>
-                <li><a href="https://kubsu.ru"><img src="https://colab.ws/storage/images/resized/ZunzPDBGq2IX6KTpUfW3TGLRhxU2NohRlvTfEabZ_large.webp" alt="KubSU Logo">3) Ссылка-изображение</a></li>
+                <li><a href="https://kubsu.ru"><img src="https://colab.ws/storage/images/resized/ZunzPDBGq2IX6KTpUfW3TGLRhxU2NohRlvTfEabZ_large.webp" alt="KubSU Logo" class="small-logo">3) Ссылка-изображение</a></li>
                 <li><a href="/faculty">4) Сокращенная ссылка на внутреннюю страницу</a></li>
                 <li><a href="/">5) Сокращенная ссылка на главную страницу</a></li>
                 <li><a href="#table-section">6) Ссылка на фрагмент текущей страницы</a></li>
@@ -385,57 +393,6 @@
                 </li>
                 <li><a href="ftp://user:password@ftp.example.com/file.txt">21) Ссылка на файл на сервере FTP с авторизацией</a></li>
             </ul>
-        </section>
-
-        <!-- Таблица -->
-        <section id="table-section">
-            <h2>Пример таблицы</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Факультет</th>
-                        <th>Специальность</th>
-                        <th>Количество студентов</th>
-                        <th>Год основания</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Математики и компьютерных наук</td>
-                        <td>Прикладная математика</td>
-                        <td>120</td>
-                        <td>1970</td>
-                    </tr>
-                    <tr>
-                        <td>Компьютерные науки</td>
-                        <td>180</td>
-                        <td>1995</td>
-                    </tr>
-                    <tr>
-                        <td>Филологии</td>
-                        <td>Русский язык и литература</td>
-                        <td>90</td>
-                        <td>1920</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">Экономический</td>
-                        <td>Экономика</td>
-                        <td>150</td>
-                        <td>1990</td>
-                    </tr>
-                    <tr>
-                        <td>Менеджмент</td>
-                        <td>130</td>
-                        <td>1995</td>
-                    </tr>
-                    <tr>
-                        <td>Юридический</td>
-                        <td>Юриспруденция</td>
-                        <td>200</td>
-                        <td>1992</td>
-                    </tr>
-                </tbody>
-            </table>
         </section>
 
         <!-- Форма -->
@@ -504,6 +461,57 @@
                 <button type="submit" class="submit-btn">Сохранить</button>
             </form>
         </section>
+
+        <!-- Таблица -->
+        <section id="table-section">
+            <h2>Пример таблицы</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Факультет</th>
+                        <th>Специальность</th>
+                        <th>Количество студентов</th>
+                        <th>Год основания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Математики и компьютерных наук</td>
+                        <td>Прикладная математика</td>
+                        <td>120</td>
+                        <td>1970</td>
+                    </tr>
+                    <tr>
+                        <td>Компьютерные науки</td>
+                        <td>180</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>Филологии</td>
+                        <td>Русский язык и литература</td>
+                        <td>90</td>
+                        <td>1920</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Экономический</td>
+                        <td>Экономика</td>
+                        <td>150</td>
+                        <td>1990</td>
+                    </tr>
+                    <tr>
+                        <td>Менеджмент</td>
+                        <td>130</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>Юридический</td>
+                        <td>Юриспруденция</td>
+                        <td>200</td>
+                        <td>1992</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
 
     <!-- Подвал сайта -->
@@ -514,5 +522,4 @@
         </div>
     </footer>
 </body>
-
 </html>
