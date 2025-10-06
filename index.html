@@ -42,7 +42,8 @@
 
         .logo {
             width: 100px;
-            height: 50px;
+            height: 70px; /* Увеличена высота для вертикального растяжения */
+            object-fit: cover; /* Сохраняет пропорции изображения */
         }
 
         .site-title {
@@ -118,7 +119,7 @@
 
         /* Секция таблицы */
         #table-section {
-            order: 3; /* Перемещена вниз */
+            order: 2;
             margin-bottom: 2rem;
         }
 
@@ -146,7 +147,7 @@
 
         /* Секция формы */
         #form-section {
-            order: 2;
+            order: 3; /* Форма теперь в самом низу */
         }
 
         .form-group {
@@ -218,8 +219,9 @@
 
         /* Уменьшенное лого для пункта 3 */
         .small-logo {
-            width: 50px;
-            height: 25px;
+            width: 60px;
+            height: 42px; /* Сохранены пропорции увеличенного лого */
+            object-fit: cover;
             vertical-align: middle;
         }
 
@@ -242,15 +244,15 @@
             }
 
             #table-section {
-                order: 3; /* Остается внизу на планшетах */
-                width: 100%;
-                padding-left: 0;
-            }
-
-            #form-section {
                 order: 2;
                 width: 70%;
                 padding-left: 2rem;
+            }
+
+            #form-section {
+                order: 3; /* Форма остается внизу на планшетах */
+                width: 100%;
+                padding-left: 0;
             }
 
             .nav-menu {
@@ -269,6 +271,11 @@
 
             .site-title {
                 font-size: 1.5rem;
+            }
+
+            .logo {
+                width: 120px;
+                height: 84px; /* Увеличенные размеры для планшетов */
             }
         }
 
@@ -298,6 +305,16 @@
             .form-group select {
                 max-width: 400px;
             }
+
+            .logo {
+                width: 140px;
+                height: 98px; /* Увеличенные размеры для десктопов */
+            }
+
+            .small-logo {
+                width: 70px;
+                height: 49px; /* Пропорционально увеличенное малое лого */
+            }
         }
 
         /* Дополнительные улучшения для очень маленьких экранов */
@@ -323,6 +340,11 @@
             .radio-group {
                 flex-direction: column;
                 gap: 0.5rem;
+            }
+
+            .logo {
+                width: 80px;
+                height: 56px; /* Уменьшенные, но сохраняющие пропорции размеры для мобильных */
             }
         }
     </style>
@@ -362,7 +384,7 @@
                 <li><a href="https://kubsu.ru"><img src="https://colab.ws/storage/images/resized/ZunzPDBGq2IX6KTpUfW3TGLRhxU2NohRlvTfEabZ_large.webp" alt="KubSU Logo" class="small-logo">3) Ссылка-изображение</a></li>
                 <li><a href="/faculty">4) Сокращенная ссылка на внутреннюю страницу</a></li>
                 <li><a href="/">5) Сокращенная ссылка на главную страницу</a></li>
-                <li><a href="#table-section">6) Ссылка на фрагмент текущей страницы</a></li>
+                <li><a href="#form-section">6) Ссылка на фрагмент текущей страницы (теперь на форму)</a></li>
                 <li><a href="https://example.com/page?param1=value1&param2=value2&param3=value3">7) Ссылка с тремя параметрами в URL</a></li>
                 <li><a href="https://example.com/page?id=12345">8) Ссылка с параметром id в URL</a></li>
                 <li><a href="current.html">9) Относительная на страницу в текущем каталоге</a></li>
@@ -393,6 +415,57 @@
                 </li>
                 <li><a href="ftp://user:password@ftp.example.com/file.txt">21) Ссылка на файл на сервере FTP с авторизацией</a></li>
             </ul>
+        </section>
+
+        <!-- Таблица -->
+        <section id="table-section">
+            <h2>Пример таблицы</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Факультет</th>
+                        <th>Специальность</th>
+                        <th>Количество студентов</th>
+                        <th>Год основания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Математики и компьютерных наук</td>
+                        <td>Прикладная математика</td>
+                        <td>120</td>
+                        <td>1970</td>
+                    </tr>
+                    <tr>
+                        <td>Компьютерные науки</td>
+                        <td>180</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>Филологии</td>
+                        <td>Русский язык и литература</td>
+                        <td>90</td>
+                        <td>1920</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Экономический</td>
+                        <td>Экономика</td>
+                        <td>150</td>
+                        <td>1990</td>
+                    </tr>
+                    <tr>
+                        <td>Менеджмент</td>
+                        <td>130</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>Юридический</td>
+                        <td>Юриспруденция</td>
+                        <td>200</td>
+                        <td>1992</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- Форма -->
@@ -460,57 +533,6 @@
                 
                 <button type="submit" class="submit-btn">Сохранить</button>
             </form>
-        </section>
-
-        <!-- Таблица -->
-        <section id="table-section">
-            <h2>Пример таблицы</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Факультет</th>
-                        <th>Специальность</th>
-                        <th>Количество студентов</th>
-                        <th>Год основания</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Математики и компьютерных наук</td>
-                        <td>Прикладная математика</td>
-                        <td>120</td>
-                        <td>1970</td>
-                    </tr>
-                    <tr>
-                        <td>Компьютерные науки</td>
-                        <td>180</td>
-                        <td>1995</td>
-                    </tr>
-                    <tr>
-                        <td>Филологии</td>
-                        <td>Русский язык и литература</td>
-                        <td>90</td>
-                        <td>1920</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">Экономический</td>
-                        <td>Экономика</td>
-                        <td>150</td>
-                        <td>1990</td>
-                    </tr>
-                    <tr>
-                        <td>Менеджмент</td>
-                        <td>130</td>
-                        <td>1995</td>
-                    </tr>
-                    <tr>
-                        <td>Юридический</td>
-                        <td>Юриспруденция</td>
-                        <td>200</td>
-                        <td>1992</td>
-                    </tr>
-                </tbody>
-            </table>
         </section>
     </main>
 
